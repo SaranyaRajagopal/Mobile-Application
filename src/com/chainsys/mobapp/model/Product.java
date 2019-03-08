@@ -1,4 +1,4 @@
-package com.chainsys.mobapp.controller;
+package com.chainsys.mobapp.model;
 
 public class Product {
 

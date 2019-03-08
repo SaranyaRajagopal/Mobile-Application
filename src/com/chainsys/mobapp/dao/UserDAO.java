@@ -1,14 +1,12 @@
-package com.chainsys.mobapp.controller;
+package com.chainsys.mobapp.dao;
 
-import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import javax.xml.ws.Response;
-
-import org.apache.jasper.tagplugins.jstl.core.Out;
+import com.chainsys.mobapp.model.User;
+import com.chainsys.mobapp.util.ConnectionUtil;
 
 
 public class UserDAO {

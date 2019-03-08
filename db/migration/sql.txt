@@ -1,0 +1,24 @@
+create table product(product_id number(35) ,
+brand varchar2(25)not null ,
+model varchar2(20) unique not null,
+price float(25) not null,
+processor varchar2(30) not null,
+memory varchar2(20) not null,
+constraint product_id_pk primary key(product_id));
+Insert into product (PRODUCT_ID,BRAND,MODEL,PRICE,PROCESSOR,MEMORY) values (product_id_seq.nextval,'Samsung','J_Series',12500,'Exynos','32Gb');
+select * from product;
+Insert into product (PRODUCT_ID,BRAND,MODEL,PRICE,PROCESSOR,MEMORY) values (product_id_seq.nextval,'Samsung','M20',13000,'Exynos','64Gb');
+Insert into product (PRODUCT_ID,BRAND,MODEL,PRICE,PROCESSOR,MEMORY) values (product_id_seq.nextval,'Asus','Zenfone Max',13000,'SnapDragon','64Gb');
+Insert into product (PRODUCT_ID,BRAND,MODEL,PRICE,PROCESSOR,MEMORY) values (product_id_seq.nextval,'Redmi','Note 7',15000,'SnapDragon','64Gb');
+
+create table userss(
+id number unique,
+mail_id varchar2(30)not null,
+password varchar2(20)not null ,
+name varchar2(20) not null,
+gender varchar2(10)not null,
+age number not null,
+phone_number number not null,
+constraint userss_mail_id_pk primary key(mail_id),
+constraint userss_check_age check(age>=18),
+constraint userss_check_gender check(gender in('male','female')));

@@ -9,20 +9,23 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.chainsys.mobapp.dao.UserDAO;
+import com.chainsys.mobapp.model.User;
+
 /**
  * Servlet implementation class IncorrectSignUp
  */
 @WebServlet("/IncorrectSignUp")
 public class IncorrectSignUp extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public IncorrectSignUp() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public IncorrectSignUp() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -36,7 +39,7 @@ public class IncorrectSignUp extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
+
 		String name =request.getParameter("username");
 		int age = Integer.parseInt(request.getParameter("age"));
 		long phoneNumber=Long.parseLong(request.getParameter("phoneNumber"));
@@ -50,30 +53,30 @@ public class IncorrectSignUp extends HttpServlet {
 		user.setEmail(email);
 		user.setPassword(password);
 		user.setPhoneNumber(phoneNumber);
-		
-				
+
+
 		try {
 			UserDAO dao1 = new UserDAO();
 			boolean b1 = dao1.checkUser(user);
 			if(b1){
-			dao1.addUser(user);
-			RequestDispatcher rd = request.getRequestDispatcher("login.html");
-			rd.forward(request, response);
+				dao1.addUser(user);
+				RequestDispatcher rd = request.getRequestDispatcher("login.html");
+				rd.forward(request, response);
 			}
 			else
 			{
-			RequestDispatcher rd = request.getRequestDispatcher("incorrectSignin.html");
-			rd.forward(request, response);	
+				RequestDispatcher rd = request.getRequestDispatcher("incorrectSignin.html");
+				rd.forward(request, response);	
 			}
 		} catch (Exception e) {
 			//RequestDispatcher rd = request.getRequestDispatcher("signup.html");
 			//rd.forward(request, response);
 			e.printStackTrace();
 		}
-	
-	
-	
-	
+
+
+
+
 	}
 
 }

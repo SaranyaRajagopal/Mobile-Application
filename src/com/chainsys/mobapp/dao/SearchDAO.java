@@ -1,10 +1,13 @@
-package com.chainsys.mobapp.controller;
+package com.chainsys.mobapp.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+
+import com.chainsys.mobapp.model.Product;
+import com.chainsys.mobapp.util.ConnectionUtil;
 
 
 public class SearchDAO {
